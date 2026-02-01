@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notare lucrare de licență</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div class="app">
+
+    <header class="app-header">
+        <h1>Notare lucrare de licență</h1>
+        <p class="subtitle">Aplicație pentru analiză fișiere .txt</p>
+    </header>
+
+    <main class="app-content">
+
+        <label class="file-box">
+            <input type="file" id="fileInput" accept=".txt" hidden>
+            <span>📄 Selectează fișierul <strong>lucrare.txt</strong></span>
+        </label>
+
+        <button id="analyzeBtn" onclick="noteaza()">
+            Analizează lucrarea
+        </button>
+
+        <section id="result" class="result hidden">
+            <h2>Rezultate</h2>
+            <pre id="output"></pre>
+        </section>
+
+    </main>
+
+    <footer class="app-footer">
+        <small>© 2026 · Aplicație educațională</small>
+    </footer>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
