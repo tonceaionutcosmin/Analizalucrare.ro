@@ -5,41 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notare lucrare de licență</title>
     <link rel="stylesheet" href="style.css">
-<script async 
-    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5945592884171768"
-    crossorigin="anonymous">
-  </script>
 </head>
 
 <body>
-<div class="reclama">
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-5945592884171768"
-       data-ad-slot="XXXXXXXXXX"
-       data-ad-format="auto"></ins>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
-</div>
-
 <div class="app">
 
     <header class="app-header">
         <h1>Notare lucrare de licență</h1>
-        <p class="subtitle">Aplicație pentru analiză fișiere .txt</p>
+        <p class="subtitle">Analiză fișiere .txt și .pdf + originalitate</p>
     </header>
 
     <main class="app-content">
 
         <label class="file-box">
-            <input type="file" id="fileInput" accept=".txt" hidden>
-            <span>📄 Selectează fișierul <strong>lucrare.txt</strong></span>
+            <input type="file" id="fileInput" accept=".txt,.pdf" hidden>
+            <span>📄 Selectează fișierul <strong>lucrare.txt / lucrare.pdf</strong></span>
         </label>
 
-        <button id="analyzeBtn" onclick="noteaza()">
-            Analizează lucrarea
-        </button>
+        <button onclick="noteaza()">Analizează lucrarea</button>
 
         <section id="result" class="result hidden">
             <h2>Rezultate</h2>
@@ -54,10 +37,10 @@
 
 </div>
 
+<!-- PDF.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+
+<!-- Script principal -->
 <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
