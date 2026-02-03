@@ -1,99 +1,113 @@
-function noteaza() {
-    const file = document.getElementById("fileInput").files[0];
-    if (!file) {
-        alert("Selectează un fișier .txt");
+async function noteaza() {
+    const input = document.getElementById("fileInput");
+    const output = document.getElementById("output");
+    const result = document.getElementById("result");
+
+    if (!input.files.length) {
+        alert("Selectează un fișier .txt sau .pdf!");
         return;
     }
 
-    const reader = new FileReader();
-    reader.onload = function (e) {
-        const text = e.target.result.trim();
+    const file = input.files[0];
+    const ext = file.name.split(".").pop().toLowerCase();
+    let text = "";
 
-        /* =====================
-           PREPROCESARE TEXT
-        ===================== */
-        const words = text
-            .toLowerCase()
-            .split(/\s+/)
-            .map(w => w.replace(/[^a-zăâîșț]/gi, ""))
-            .filter(w => w.length > 2);
+    if (ext === "txt") {
+        text = await readTxt(file);
+    } else if (ext === "pdf") {
+        text = await readPdf(file);
+    } else {
+        alert("Format neacceptat!");
+        return;
+    }
 
-        const totalWords = words.length;
-        const uniqueWords = new Set(words).size;
-        const lexicalDiversity = (uniqueWords / totalWords) * 100;
+    const wordsArray = text
+        .toLowerCase()
+        .replace(/[^a-zăâîșț\s]/gi, "")
+        .split(/\s+/)
+        .filter(w => w.length > 2);
 
-        /* =====================
-           REPETIȚII CUVINTE
-        ===================== */
-        const freq = {};
-        words.forEach(w => freq[w] = (freq[w] || 0) + 1);
+    const totalWords = wordsArray.length;
+    const uniqueWords = new Set(wordsArray).size;
 
-        const repetitiveWords = Object.entries(freq)
-            .filter(([_, v]) => v > 15)
-            .sort((a, b) => b[1] - a[1])
-            .slice(0, 8);
+    const originality = calculeazaOriginalitate(wordsArray);
+    const nota = calculeazaNota(totalWords, originality);
 
-        /* =====================
-           FRAZE IDENTICE
-        ===================== */
-        const sentences = text
-            .split(/[.!?]/)
-            .map(s => s.trim())
-            .filter(s => s.length > 25);
+    output.textContent =
+        `📄 Fișier: ${file.name}\n` +
+        `📝 Număr cuvinte: ${totalWords}\n` +
+        `📚 Cuvinte unice: ${uniqueWords}\n` +
+        `🧠 Originalitate estimată: ${originality}%\n` +
+        `🎓 Nota finală: ${nota}`;
 
-        const sentenceFreq = {};
-        sentences.forEach(s => sentenceFreq[s] = (sentenceFreq[s] || 0) + 1);
+    result.classList.remove("hidden");
+}
 
-        const duplicatedSentences =
-            Object.values(sentenceFreq).filter(v => v > 1).length;
+// ===== TXT =====
+function readTxt(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = reject;
+        reader.readAsText(file);
+    });
+}
 
-        /* =====================
-           SCOR PLAGIAT
-        ===================== */
-        let riskScore = 0;
+// ===== PDF =====
+async function readPdf(file) {
+    const buffer = await file.arrayBuffer();
+    const pdf = await pdfjsLib.getDocument({ data: buffer }).promise;
+    let text = "";
 
-        if (lexicalDiversity < 40) riskScore += 3;
-        if (lexicalDiversity < 30) riskScore += 2;
-        if (duplicatedSentences > 3) riskScore += 3;
-        if (duplicatedSentences > 8) riskScore += 2;
-        if (repetitiveWords.length > 5) riskScore += 2;
+    for (let i = 1; i <= pdf.numPages; i++) {
+        const page = await pdf.getPage(i);
+        const content = await page.getTextContent();
+        text += content.items.map(item => item.str).join(" ") + "\n";
+    }
 
-        let plagiarismRisk = "SCĂZUT";
-        if (riskScore >= 5) plagiarismRisk = "MEDIU";
-        if (riskScore >= 9) plagiarismRisk = "RIDICAT";
+    return text;
+}
 
-        /* =====================
-           NOTĂ FINALĂ
-        ===================== */
-        let nota = 5;
-        if (totalWords > 500) nota++;
-        if (totalWords > 1000) nota++;
-        if (lexicalDiversity > 45) nota++;
-        if (lexicalDiversity > 55) nota++;
-        if (plagiarismRisk === "RIDICAT") nota -= 2;
+// ===== ORIGINALITATE =====
+function calculeazaOriginalitate(words) {
+    const total = words.length;
+    const unique = new Set(words).size;
 
-        nota = Math.max(1, Math.min(10, nota));
+    // penalizare pentru vocabular sărac
+    let originality = Math.round((unique / total) * 100);
 
-        /* =====================
-           AFIȘARE
-        ===================== */
-        document.getElementById("output").textContent =
-`ANALIZĂ PLAGIAT ȘI CALITATE
+    // fraze academice comune
+    const phrases = [
+        "în concluzie",
+        "lucrarea de față",
+        "se poate observa",
+        "în cadrul acestei lucrări",
+        "din punct de vedere"
+    ];
 
-Număr cuvinte: ${totalWords}
-Cuvinte unice: ${uniqueWords}
-Diversitate lexicală: ${lexicalDiversity.toFixed(2)}%
+    let penalty = 0;
+    phrases.forEach(p => {
+        if (words.join(" ").includes(p)) penalty += 3;
+    });
 
-Fraze identice: ${duplicatedSentences}
-Cuvinte repetate excesiv:
-${repetitiveWords.map(r => `${r[0]} (${r[1]} ori)`).join(", ") || "Niciunul"}
+    originality -= penalty;
 
-RISC PLAGIAT: ${plagiarismRisk}
+    if (originality < 30) originality = 30;
+    if (originality > 100) originality = 100;
 
-NOTĂ ESTIMATĂ: ${nota}`;
+    return originality;
+}
 
-        document.getElementById("result").classList.remove("hidden");
-    };
+// ===== NOTARE =====
+function calculeazaNota(words, originality) {
+    let nota = 5;
 
-    reader.readAsText(file);
+    if (words > 5000) nota++;
+    if (words > 8000) nota++;
+
+    if (originality > 70) nota++;
+    if (originality > 85) nota++;
+
+    if (nota > 10) nota = 10;
+    return nota;
 }
