@@ -3,75 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notare lucrare de licență</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Pagina cu reclame</title>
 
-    <!-- Script AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5945592884171768"
-        crossorigin="anonymous"></script>
+    <!-- Script AdSense (Publisher ID real) -->
+    <script async 
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5945592884171768"
+        crossorigin="anonymous">
+    </script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .ad-block {
+            margin: 30px 0;
+        }
+
+        p {
+            font-size: 18px;
+        }
+    </style>
 </head>
 <body>
-<div class="app">
 
-    <header class="app-header">
-        <h1>Notare lucrare de licență</h1>
-        <p class="subtitle">Analiză fișiere .txt și .pdf + originalitate</p>
+    <h1>Bine ai venit pe pagina mea!</h1>
+    <p>Aici va apărea reclama Google AdSense.</p>
 
-        <!-- Bloc AdSense Header -->
+    <!-- Bloc AdSense -->
+    <div class="ad-block">
         <ins class="adsbygoogle"
              style="display:block"
              data-ad-client="ca-pub-5945592884171768"
-             data-ad-slot="NUMAR_AD_SLOT_HEADER"
+             data-ad-slot="NUMAR_AD_SLOT"
              data-ad-format="auto"
              data-full-width-responsive="true"></ins>
         <script>
             (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
-    </header>
+    </div>
 
-    <main class="app-content">
+    <p>Pagina are conținut util pentru vizitatori și reclamă care se încarcă automat.</p>
 
-        <!-- Text descriptiv pentru vizibilitate AdSense -->
-        <p>Acest calculator ajută la notarea lucrărilor de licență și analiza fișierelor .txt sau .pdf pentru verificarea originalității.</p>
-
-        <!-- Input fișier -->
-        <label class="file-box">
-            <input type="file" id="fileInput" accept=".txt,.pdf" hidden>
-            <span>📄 Selectează fișierul <strong>lucrare.txt / lucrare.pdf</strong></span>
-        </label>
-
-        <!-- Buton pentru analiză -->
-        <button onclick="noteaza()">Analizează lucrarea</button>
-
-        <!-- Rezultate -->
-        <section id="result" class="result hidden">
-            <h2>Rezultate</h2>
-            <pre id="output"></pre>
-        </section>
-
-        <!-- Bloc AdSense Footer / Main -->
-        <ins class="adsbygoogle"
-             style="display:block; margin-top:20px;"
-             data-ad-client="ca-pub-5945592884171768"
-             data-ad-slot="NUMAR_AD_SLOT_FOOTER"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-
-    </main>
-
-    <footer class="app-footer">
-        <small>© 2026 · Aplicație educațională</small>
-    </footer>
-
-</div>
-
-<!-- PDF.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
-
-<!-- Script principal -->
-<script src="script.js"></script>
 </body>
 </html>
