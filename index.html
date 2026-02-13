@@ -4,86 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notare lucrare de licență</title>
+    <link rel="stylesheet" href="style.css">
 
     <!-- Script AdSense (Publisher ID real) -->
     <script async 
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5945592884171768"
         crossorigin="anonymous">
     </script>
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f9f9f9;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-        }
-
-        .container {
-            max-width: 800px;
-            width: 100%;
-            background: #fff;
-            margin: 40px 20px;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-
-        h1 {
-            color: #333;
-            margin-bottom: 10px;
-        }
-
-        p.subtitle {
-            color: #666;
-            margin-bottom: 20px;
-        }
-
-        .ad-block {
-            margin: 30px 0;
-        }
-
-        .file-box {
-            display: inline-block;
-            padding: 10px 20px;
-            background: #007bff;
-            color: #fff;
-            border-radius: 5px;
-            cursor: pointer;
-            margin: 10px 0;
-        }
-
-        button {
-            padding: 10px 20px;
-            background: #28a745;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-
-        #result {
-            margin-top: 20px;
-            background: #f1f1f1;
-            padding: 15px;
-            border-radius: 5px;
-            white-space: pre-wrap;
-            text-align: left;
-        }
-    </style>
 </head>
 <body>
+<div class="app">
 
-<div class="container">
-    <h1>Notare lucrare de licență</h1>
-    <p class="subtitle">Analiză fișiere .txt și .pdf + originalitate</p>
+    <header class="app-header">
+        <h1>Notare lucrare de licență</h1>
+        <p class="subtitle">Analiză fișiere .txt și .pdf + originalitate</p>
 
-    <!-- Bloc AdSense -->
-    <div class="ad-block">
+        <!-- Bloc AdSense unic -->
         <ins class="adsbygoogle"
              style="display:block"
              data-ad-client="ca-pub-5945592884171768"
@@ -93,22 +29,34 @@
         <script>
             (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
-    </div>
+    </header>
 
-    <!-- Input fișier -->
-    <label class="file-box">
-        <input type="file" id="fileInput" accept=".txt,.pdf" hidden>
-        📄 Selectează fișierul <strong>lucrare.txt / lucrare.pdf</strong>
-    </label>
+    <main class="app-content">
 
-    <br>
-    <button onclick="noteaza()">Analizează lucrarea</button>
+        <!-- Text descriptiv -->
+        <p>Acest calculator ajută la notarea lucrărilor de licență și analiza fișierelor .txt sau .pdf pentru verificarea originalității.</p>
 
-    <!-- Rezultate -->
-    <section id="result" class="result hidden">
-        <h2>Rezultate</h2>
-        <pre id="output"></pre>
-    </section>
+        <!-- Input fișier -->
+        <label class="file-box">
+            <input type="file" id="fileInput" accept=".txt,.pdf" hidden>
+            <span>📄 Selectează fișierul <strong>lucrare.txt / lucrare.pdf</strong></span>
+        </label>
+
+        <!-- Buton pentru analiză -->
+        <button onclick="noteaza()">Analizează lucrarea</button>
+
+        <!-- Rezultate -->
+        <section id="result" class="result hidden">
+            <h2>Rezultate</h2>
+            <pre id="output"></pre>
+        </section>
+
+    </main>
+
+    <footer class="app-footer">
+        <small>© 2026 · Aplicație educațională</small>
+    </footer>
+
 </div>
 
 <!-- PDF.js -->
@@ -116,6 +64,5 @@
 
 <!-- Script principal -->
 <script src="script.js"></script>
-
 </body>
 </html>
