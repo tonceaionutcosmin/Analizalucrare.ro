@@ -6,7 +6,7 @@
     <title>Notare lucrare de licență</title>
     <link rel="stylesheet" href="style.css">
 
-    <!-- Script AdSense (Publisher ID real) -->
+    <!-- Script AdSense -->
     <script async 
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5945592884171768"
         crossorigin="anonymous">
@@ -17,38 +17,63 @@
 
     <header class="app-header">
         <h1>Notare lucrare de licență</h1>
-        <p class="subtitle">Analiză fișiere .txt și .pdf + originalitate</p>
-
-        <!-- Bloc AdSense unic -->
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-5945592884171768"
-             data-ad-slot="7017766963"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
+        <p class="subtitle">Analiză fișiere .txt și .pdf + verificare originalitate</p>
     </header>
 
     <main class="app-content">
 
-        <!-- Text descriptiv -->
-        <p>Acest calculator ajută la notarea lucrărilor de licență și analiza fișierelor .txt sau .pdf pentru verificarea originalității.</p>
+        <!-- CONTINUT INFORMATIV (IMPORTANT pentru AdSense) -->
+        <section>
+            <h2>Despre aplicație</h2>
+            <p>
+                Această aplicație educațională ajută la analiza lucrărilor de licență în format .txt și .pdf.
+                Scopul este de a oferi o evaluare orientativă a structurii, volumului de text
+                și coerenței conținutului.
+            </p>
 
-        <!-- Input fișier -->
-        <label class="file-box">
-            <input type="file" id="fileInput" accept=".txt,.pdf" hidden>
-            <span>📄 Selectează fișierul <strong>lucrare.txt / lucrare.pdf</strong></span>
-        </label>
+            <p>
+                Notarea unei lucrări de licență implică mai multe criterii: structură logică,
+                originalitate, claritate academică, respectarea normelor de citare și
+                organizarea capitolelor. Instrumentul de față oferă o analiză automată
+                preliminară care poate ajuta studenții să își îmbunătățească documentul
+                înainte de predare.
+            </p>
 
-        <!-- Buton pentru analiză -->
-        <button onclick="noteaza()">Analizează lucrarea</button>
+            <p>
+                Verificarea originalității este un aspect important în mediul universitar.
+                Deși această aplicație nu înlocuiește un soft profesional anti-plagiat,
+                ea poate identifica anumite tipare repetitive sau probleme de structură.
+            </p>
+        </section>
 
-        <!-- Rezultate -->
-        <section id="result" class="result hidden">
-            <h2>Rezultate</h2>
-            <pre id="output"></pre>
+        <!-- RECLAMA MUTATA DUPA CONTINUT -->
+        <div style="margin:40px 0;">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-5945592884171768"
+                 data-ad-slot="7017766963"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <!-- TOOL -->
+        <section>
+            <h2>Analizează lucrarea ta</h2>
+
+            <label class="file-box">
+                <input type="file" id="fileInput" accept=".txt,.pdf" hidden>
+                <span>📄 Selectează fișierul <strong>lucrare.txt / lucrare.pdf</strong></span>
+            </label>
+
+            <button onclick="noteaza()">Analizează lucrarea</button>
+
+            <section id="result" class="result hidden">
+                <h3>Rezultate</h3>
+                <pre id="output"></pre>
+            </section>
         </section>
 
     </main>
@@ -59,10 +84,7 @@
 
 </div>
 
-<!-- PDF.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
-
-<!-- Script principal -->
 <script src="script.js"></script>
 </body>
 </html>
