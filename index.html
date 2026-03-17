@@ -3,60 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notare lucrare de licență</title>
+
+    <title>Notare lucrare de licență | Analiză PDF și TXT</title>
+    <meta name="description" content="Analizează rapid lucrarea ta de licență. Verificare structură, volum și originalitate pentru fișiere PDF și TXT.">
+
     <link rel="stylesheet" href="style.css">
 
-    <!-- Script AdSense -->
+    <!-- AdSense -->
     <script async 
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5945592884171768"
-        crossorigin="anonymous">
-    </script>
+        crossorigin="anonymous"></script>
+
+    <meta name="theme-color" content="#111827">
 </head>
+
 <body>
 <div class="app">
 
+    <!-- HEADER -->
     <header class="app-header">
         <h1>Notare lucrare de licență</h1>
-        <p class="subtitle">Analiză fișiere .txt și .pdf + verificare originalitate</p>
+        <p class="subtitle">Analiză automată pentru fișiere PDF și TXT</p>
     </header>
 
     <main class="app-content">
 
-        <!-- CONTINUT INFORMATIV (IMPORTANT pentru AdSense) -->
+        <!-- CONTINUT SEO (FOARTE IMPORTANT) -->
         <section>
             <h2>Despre aplicație</h2>
             <p>
-                Această aplicație educațională ajută la analiza lucrărilor de licență în format .txt și .pdf.
-                Scopul este de a oferi o evaluare orientativă a structurii, volumului de text
-                și coerenței conținutului.
+                Această aplicație educațională oferă o analiză automată a lucrărilor de licență.
+                Instrumentul verifică structura textului, lungimea, organizarea și coerența.
             </p>
 
             <p>
-                Notarea unei lucrări de licență implică mai multe criterii: structură logică,
-                originalitate, claritate academică, respectarea normelor de citare și
-                organizarea capitolelor. Instrumentul de față oferă o analiză automată
-                preliminară care poate ajuta studenții să își îmbunătățească documentul
-                înainte de predare.
+                Evaluarea unei lucrări academice implică mai multe criterii: claritate,
+                structură logică, respectarea normelor academice și originalitate.
+                Aplicația oferă o estimare rapidă care te ajută să îți îmbunătățești lucrarea.
             </p>
 
+            <h2>Cum funcționează</h2>
             <p>
-                Verificarea originalității este un aspect important în mediul universitar.
-                Deși această aplicație nu înlocuiește un soft profesional anti-plagiat,
-                ea poate identifica anumite tipare repetitive sau probleme de structură.
+                Sistemul analizează conținutul fișierului și calculează indicatori precum:
+                densitatea textului, repetițiile și structura generală.
+            </p>
+
+            <h2>Limitări</h2>
+            <p>
+                Acest instrument nu înlocuiește evaluarea oficială sau softurile profesionale anti-plagiat.
+                Este doar un ghid orientativ pentru îmbunătățirea lucrării.
             </p>
         </section>
 
-        <!-- RECLAMA MUTATA DUPA CONTINUT -->
-        <div style="margin:40px 0;">
+        <!-- RECLAMA TOP -->
+        <div class="ad-box">
             <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-5945592884171768"
-                 data-ad-slot="7017766963"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
+                style="display:block"
+                data-ad-client="ca-pub-5945592884171768"
+                data-ad-slot="7017766963"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
         </div>
 
         <!-- TOOL -->
@@ -65,10 +71,10 @@
 
             <label class="file-box">
                 <input type="file" id="fileInput" accept=".txt,.pdf" hidden>
-                <span>📄 Selectează fișierul <strong>lucrare.txt / lucrare.pdf</strong></span>
+                <span>📄 Selectează fișierul</span>
             </label>
 
-            <button onclick="noteaza()">Analizează lucrarea</button>
+            <button onclick="noteaza()">Analizează</button>
 
             <section id="result" class="result hidden">
                 <h3>Rezultate</h3>
@@ -76,15 +82,36 @@
             </section>
         </section>
 
+        <!-- RECLAMA JOS -->
+        <div class="ad-box">
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-5945592884171768"
+                data-ad-slot="7017766963"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+        </div>
+
     </main>
 
+    <!-- FOOTER (IMPORTANT PENTRU APROBARE) -->
     <footer class="app-footer">
-        <small>© 2026 · Aplicație educațională</small>
+        <small>© 2026 · Aplicație educațională</small><br>
+
+        <a href="privacy.html">Politica de confidențialitate</a> |
+        <a href="contact.html">Contact</a>
     </footer>
 
 </div>
 
+<!-- Script reclame (apel unic) -->
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+<!-- PDF + Script -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
 <script src="script.js"></script>
+
 </body>
 </html>
